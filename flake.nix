@@ -26,10 +26,10 @@
                     mkdir -p "$out/NaturalDocs"
                     cp -r ./* "$out/NaturalDocs/"
                     mkdir -p $out/bin
-                    touch $out/bin/naturaldocs
-                    echo "#! ${pkgs.bash}/bin/bash" >> "$out/bin/naturaldocs"
-                    echo "exec ${pkgs.mono}/bin/mono $out/NaturalDocs/NaturalDocs.exe \$@" >> "$out/bin/naturaldocs"
-                    chmod +x "$out/bin/naturaldocs"
+                    touch $out/bin/NaturalDocs
+                    echo "#! ${pkgs.bash}/bin/bash" >> "$out/bin/NaturalDocs"
+                    echo "exec ${pkgs.mono}/bin/mono $out/NaturalDocs/NaturalDocs.exe \$@" >> "$out/bin/NaturalDocs"
+                    chmod +x "$out/bin/NaturalDocs"
                 '';
 
                 system = builtins.currentSystem;
