@@ -11,14 +11,15 @@
     outputs = { self, nixpkgs, flake-utils, ... }: flake-utils.lib.eachDefaultSystem (system: 
     let 
         pkgs = nixpkgs.legacyPackages.${system};
+        version = "2.3";
     in { 
         packages.naturaldocs = pkgs.stdenvNoCC.mkDerivation {
             name = "naturaldocs";
-            version = "2.3";
+            version = version;
             dontConfigure = true;
 
             src = pkgs.fetchurl {
-                url = "https://naturaldocs.org/download/natural_docs/2.3/Natural_Docs_2.3.zip";
+                url = "https://naturaldocs.org/download/natural_docs/${version}/Natural_Docs_${version}.zip";
                 hash = "sha256-N9z+qgruKjYirchYgu2s+5EcLnE9umWSy+5oEt7d0vI=";
             };
 
